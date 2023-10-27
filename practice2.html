@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>EECS 348 Lab 7 - Practice 2</title>
+</head>
+<body>
+<p id = "targetParagraph" style="padding: 20px; margin-top: 20px;">     Random Paragraph is written here and the background will be customized based on input</p>
+<h1>EECS 348 Lab 7 - Practice 2</h1>
+<p>Border R(0-255): <input type = "text" id = "borderR" min = "0" max = "255" value=  ""></p>
+<p>Border G(0-255): <input type = "text" id = "borderG" min = "0" max = "255" value = ""></p>
+<p>Border B(0-255): <input type = "text" id = "borderB" min = "0" max = "255" value = ""></p>
+<p>Border Width: <input type = "text" id = "width" min = "1" value = ""></p>
+<p>Background R(0-255): <input type = "text" id = "bgR" min = "0" max = "255" value = ""></p>
+<p>Background G(0-255): <input type = "text" id = "bgG" min = "0" max = "255" value = ""></p>
+<p>Background B(0-255): <input type = "text" id = "bgB" min = "0" max = "255" value = ""></p>
+
+<button onclick="changeBackground()">Apply Changes</button>
+
+<script>
+    function changeBackground() {
+        const borderR = document.getElementById('borderR').value || 0;
+        const borderG = document.getElementById('borderG').value || 0;
+        const borderB = document.getElementById('borderB').value || 0;
+        const width = document.getElementById('width').value || 0;
+        const bgR = document.getElementById('bgR').value || 255;
+        const bgG = document.getElementById('bgG').value || 255;
+        const bgB = document.getElementById('bgB').value || 255;
+        
+        const colorChange = `rgb(${borderR}, ${borderG}, ${borderB})`;
+        const bgColor = `rgb(${bgR}, ${bgG}, ${bgB})`;
+        
+        const paragraph = document.getElementById('targetParagraph');
+        paragraph.style.border = `${width}px solid ${colorChange}`;
+        paragraph.style.backgroundColor = bgColor;
+        
+    }
+</script>
+</body>
+</html>
